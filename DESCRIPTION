@@ -3,8 +3,10 @@ Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
 Author: Andre Gonzalez <andre.g1125@icloud.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: This package should be able to analyse the changes of users 
+    hardware using the Steam platform. This package should include historical
+    data regarding users hardware choices and most common games that are being
+    played. 
 Depends: R (>= 3.1.2)
 License: GNU
 Encoding: UTF-8
