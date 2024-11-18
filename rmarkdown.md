@@ -36,3 +36,10 @@ Some details of the data
 ## Visuals 
 
 In this section I will use functions to show visuals of the calculated data. 
+
+## Inline R code
+
+Here is a test of using in line r code using 2 * 233 =  
+```{r eval=TRUE} 
+2 * 233
+```
