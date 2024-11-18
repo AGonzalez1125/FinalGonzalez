@@ -41,5 +41,5 @@ In this section I will use functions to show visuals of the calculated data.
 
 Here is a test of using in line r code using 2 * 233 =  
 ```{r eval=TRUE} 
-2 * 233
+2 * 233 = 
 ```
