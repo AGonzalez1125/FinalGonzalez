@@ -1,6 +1,12 @@
 ## Run This Script First.
 
 
+# Used to access steam via Api request
+install.packages("httr")
+install.packages("jsonlite")
+library(httr)
+library(jsonlite)
+
 ## This will create the S3 object labeled Steam Player and define a print
 ## function for it.
 

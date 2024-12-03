@@ -1,13 +1,19 @@
 Package: FinalGonzalez
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Steam Player Data Analysis
 Version: 0.1.0
+Date: 2024-12-3
 Author: Andre Gonzalez <andre.g1125@icloud.com>
-Description: This package should be able to analyse the changes of users 
-    software using the Steam platform. This package should include historical
-    data regarding most common games that are being
-    played. 
-Depends: R (>= 3.1.2)
+Description: This package should be able to analyse the preferences of users 
+    software using the Steam platform. This will download data from Steam using 
+    the steam api and create player objects to be used to analyze the most played
+    games of players in a sample. 
+    
+Depends: R (version >= 4.0.0)
+Required R packages:
+  - `httr`
+  - `jsonlite`
+  - `ggplot2`
 License: GNU
 Encoding: UTF-8
 LazyData: true
