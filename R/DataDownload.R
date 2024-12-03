@@ -19,7 +19,7 @@ library(jsonlite)
 
 ## Set your Steam API key, for Security I will not put the API Key in the code.
 ## You can get your own API key here: https://steamcommunity.com/dev/apikey
-api_key <- readLines(file.choose())
+api_key <- readLines("api_key.txt")
 
 ## Define the Steam API base URL
 steam_url <- "https://api.steampowered.com"
