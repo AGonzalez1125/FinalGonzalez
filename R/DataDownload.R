@@ -1,6 +1,7 @@
 #Programmer: Andre Gonzalez
 # This will install the necessary packages and download the data from steam.
 
+## Run This Script Third
 
 ## Used to create documentation
 install.packages("devtools")
@@ -16,18 +17,18 @@ library(jsonlite)
 
 
 
-# Set your Steam API key, for Security I will not put the API Key in the code.
-# You can get your own API key here: https://steamcommunity.com/dev/apikey
+## Set your Steam API key, for Security I will not put the API Key in the code.
+## You can get your own API key here: https://steamcommunity.com/dev/apikey
 api_key <- readLines(file.choose())
 
-# Define the Steam API base URL
+## Define the Steam API base URL
 steam_url <- "https://api.steampowered.com"
 
 ## Call Function to create vector of valid steam IDs
 steam_ids <- steamIDGenerate( api_key, n = 1000)
 
 ## My steam ID for testing functions
-testSteamID <- 76561198140788932
+testSteamID <- "76561198140788932"
 
 
 ## Function to pull Player Summary
@@ -39,11 +40,9 @@ get_player_summary <- function(api_key, steam_id) {
   if (httr::status_code(response) == 200) {
     data <- jsonlite::fromJSON(httr::content(response, "text", encoding = "UTF-8"))
     print(data) # Debug the entire API response
-    if (!is.null(data$response$players) && length(data$response$players) > 0) {
-      player_info <- data$response$players[[1]]
-      if (!is.list(player_info)) {
-        player_info <- list()
-      }
+    if (!is.null(data$response$players) && nrow(data$response$players) > 0) {
+      # Extract the player data as a named list
+      player_info <- as.list(data$response$players[1, ]) # Extract the first row as a list
       return(player_info)
     } else {
       warning("No player data found for Steam ID: ", steam_id)
@@ -54,6 +53,7 @@ get_player_summary <- function(api_key, steam_id) {
   warning("Failed to fetch player summary for Steam ID: ", steam_id)
   return(list()) # Return an empty list for failed API requests
 }
+
 
 
 
@@ -76,7 +76,6 @@ get_game_library <- function(api_key, steam_id) {
 }
 
 ## Function to pull app info
-# Function to fetch app info for a given app ID
 get_app_info <- function(api_key, app_id) {
   base_store_url <- "https://store.steampowered.com/api/appdetails/"
   app_url <- paste0(base_store_url, "?appids=", app_id)
@@ -101,12 +100,14 @@ enrich_game_library <- function(game_library) {
       if (!is.null(app_details$name)) {
         return(app_details$name)
       } else {
+        warning("No game name found for App ID: ", app_id)
         return("Unknown")
       }
     })
   }
   return(game_library)
 }
+
 
 
 ## Function to Call other functions and Create Steam_Player Object
@@ -157,8 +158,6 @@ create_steam_player_list <- function(api_key, steam_ids) {
 
 
 ## Next Section is to test each functions to assist with debugging.
-player_list <- create_steam_player_list(api_key, steam_ids)
-
 test_playerSummary <- get_player_summary(api_key,testSteamID)
 print(test_playerSummary)
 
@@ -167,4 +166,9 @@ print(test_gameSummary)
 
 test_steamPlayer <- create_steam_player(api_key, testSteamID)
 print(test_steamPlayer)
+
+
+
+## Create Player list to be used for analytics
+player_list <- create_steam_player_list(api_key, steam_ids)
 

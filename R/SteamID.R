@@ -1,3 +1,5 @@
+## Run This Script Second.
+
 ## This file will generate random steam IDs to build out to use in the functions
 ## to pull data
 ## This function will also verify if the steam ID is valid using the api connection

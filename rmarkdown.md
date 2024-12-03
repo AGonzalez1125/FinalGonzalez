@@ -13,7 +13,7 @@ Video games has always been a part of my life and I was looking away to incorpor
 
 ## Libraries used in this Project
 
-These are the libraries needed for analysis of the data. These below are samples and are subject to change with the finas iteration of the project.
+These are the libraries needed for analysis of the data. These below are samples and are subject to change with the final iteration of the project.
 
 
 ```{r setup, include=FALSE}
