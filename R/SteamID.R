@@ -40,6 +40,7 @@ steamIDGenerate <- function(api_key,n) {
       ## Check if player exists
       if (length(data$response$players) > 0 ){
           verified_steam <- c(verified_steam, steam_id)
+          message("Found Verified Steam ID: ", steam_id)
         }
       }
 
