@@ -5,6 +5,9 @@
 install.packages("ggplot2")
 library(ggplot2)
 
+# Load cached data
+player_list <- readRDS("player_list.rds")
+
 ## Function to visualize the most played games across all players
 visualize_most_played_games <- function(player_list) {
   library(ggplot2)

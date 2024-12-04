@@ -172,3 +172,8 @@ print(test_steamPlayer)
 ## Create Player list to be used for analytics
 player_list <- create_steam_player_list(api_key, steam_ids)
 
+# Save API response to a file
+saveRDS(player_list, "player_list.rds")
+
+
+

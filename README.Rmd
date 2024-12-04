@@ -7,14 +7,9 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-options(repos = c(CRAN = "https://cloud.r-project.org"))
 ```
 
-```{r source-folder, include=FALSE}
-# Dynamically source all R files in the "R" folder
-r_files <- list.files("R", pattern = "\\.R$", full.names = TRUE)
-lapply(r_files, source)
-```
+
 
 # Introduction
 
@@ -71,10 +66,15 @@ Generates a bar chart showing the average playtime for the top 10 games.
 
 ## Visuals 
 
-`r visualize_most_played_games(player_list)`   
-`r visualize_average_playtime(player_list)`
+` visualize_most_played_games(player_list)`   
+` visualize_average_playtime(player_list)`
+
+Please run `4DataVisualize.R` with the cached data for bar charts. 
 
 
+To create your own data follow steps listed below: 
+
+1.  Run R files in number order. 
 
 
 
